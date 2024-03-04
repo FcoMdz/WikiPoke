@@ -31,3 +31,12 @@
   background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco con transparencia */
   text-align: left; /* Alineación del texto a la izquierda */
 }
+
+.notFound {
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco con transparencia */
+  padding: 8px; /* Espaciado interno */
+  margin-bottom: 50%;
+  color:aliceblue;
+  font-size: 24dp;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco con transparencia */
+}

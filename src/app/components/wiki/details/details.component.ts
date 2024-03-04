@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.pokemonId = Number(params.get('id'));
       // Obtener los detalles del Pokémon usando el ID
+      if(this.pokemonId !== 0)
       this.getPokemonDetails(this.pokemonId);
     });
   }

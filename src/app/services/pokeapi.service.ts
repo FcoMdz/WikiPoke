@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +28,16 @@ export class PokeapiService  {
   }
   getPokemonDetailsByUrl(url: string): Observable<PokemonDetails> {
     return this.http.get<PokemonDetails>(url);
+  }
+
+  
+  getPokemonByName(name: string): Observable<any> {
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${name}`;
+    return this.http.get<any>(apiUrl).pipe(
+      catchError(error => {
+        return of({}); // Devolver un objeto vacío en caso de error
+      })
+    );
   }
 
 }

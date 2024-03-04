@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body" data-bs-theme="dark">
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <a class="navbar-brand" routerLink="/"><img src="assets/iconPb.png" alt="PokeWiki" height="50px" width="50px"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,6 +10,12 @@
             <a class="nav-link active" aria-current="page" routerLink="/">PokeWiki</a>
           </li>
         </ul>
+
+        <form class="d-flex " [formGroup]="miFormulario">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            formControlName="nombre">
+          <button class="btn btn-outline-success" type="submit" (click)="searchPokemon()">Search</button>
+        </form>
       </div>
     </div>
   </nav>

@@ -10,6 +10,7 @@ import { HomeComponent } from './components/wiki/home/home.component';
 import { CommonModule } from '@angular/common';
 import { PokeapiService } from './services/pokeapi.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PokeapiService],
   bootstrap: [AppComponent]
