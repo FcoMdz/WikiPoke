@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="row g-0">
+      <div class="col-md-4" >
+        <img *ngIf="pokemonDetails?.sprites && pokemonDetails?.sprites?.front_default" [src]="pokemonDetails?.sprites?.front_default" class="img-fluid rounded-start" alt="Imagen del Pokémon">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{ pokemonDetails?.name }}</h3>
+          <p class="card-text">ID: {{ pokemonDetails?.id }}</p>
+          <p class="card-text">Tipos: {{ getTypes() }}</p>
+          <p class="card-text">Habilidades:</p>
+          <ul class="list-unstyled">
+            <li *ngFor="let ability of pokemonDetails?.abilities">
+              {{ ability.ability.name }} ({{ ability.is_hidden ? 'oculta' : 'visible' }})
+            </li>
+          </ul>
+          <h3 class="card-text">Estadísticas:</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Valor Base</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let stat of pokemonDetails?.stats">
+                <td>{{ stat.stat.name }}</td>
+                <td>{{ stat.base_stat }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="card-text"><small class="text-muted">Última actualización: {{ getLastUpdated() }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

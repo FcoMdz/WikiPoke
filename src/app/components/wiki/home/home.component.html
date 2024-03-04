@@ -1,0 +1,33 @@
+<h2 class="titulo">Lista de Pokémon</h2>
+<div class="row d-flex justify-content-center" style="width: 100%;">
+    <div class="col-12 position-relative py-2 px-4 justify-content-center"  style="width: 100%;">
+        <button  class="btn btn-outline-light" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
+        <button  class="btn btn-outline-light" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let pokemon of pokemonList?.results">
+      <a [routerLink]="['/pokemon', getPokemonId(pokemon.url)]" class="card-link">
+        <div class="card text-bg-dark">
+            <img [src]="getPokemonImageUrl(pokemon.url)" class="card-img-top" alt="${pokemon.name}">
+            <div class="card-img-overlay">
+              <h5 class="card-title">{{ getPokemonId(pokemon.url) }} - {{ pokemon.name }}</h5>
+              <p class="card-text">Tipos:
+              </p>
+                <ul class="list-unstyled">
+                <li *ngFor="let type of pokemonDetails?.types">
+                    {{ type.type.name }}
+                </li>
+            </ul>
+            </div>
+          </div>
+      </a>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 position-relative py-2 px-4 ">
+        <button  class="btn btn-outline-light" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
+        <button  class="btn btn-outline-light" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
+    </div>
+    
