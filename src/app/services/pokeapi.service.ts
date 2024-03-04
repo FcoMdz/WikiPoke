@@ -26,6 +26,10 @@ export class PokeapiService  {
     const url = `${this.apiUrl}?offset=${offset}&limit=20`;
     return this.http.get<any>(url);
   }
+  getPokemonDetailsByUrl(url: string): Observable<PokemonDetails> {
+    return this.http.get<PokemonDetails>(url);
+  }
+
 }
 export interface PokemonList {
   count: number;

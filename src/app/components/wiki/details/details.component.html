@@ -1,40 +1,36 @@
-<div class="card">
-    <div class="row g-0">
-      <div class="col-md-4" >
-        <img *ngIf="pokemonDetails?.sprites && pokemonDetails?.sprites?.front_default" [src]="pokemonDetails?.sprites?.front_default" class="img-fluid rounded-start" alt="Imagen del Pokémon">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 class="card-title">{{ pokemonDetails?.name }}</h3>
-          <p class="card-text">ID: {{ pokemonDetails?.id }}</p>
-          <p class="card-text">Tipos: {{ getTypes() }}</p>
-          <p class="card-text">Habilidades:</p>
-          <ul class="list-unstyled">
-            <li *ngFor="let ability of pokemonDetails?.abilities">
-              {{ ability.ability.name }} ({{ ability.is_hidden ? 'oculta' : 'visible' }})
-            </li>
-          </ul>
-          <h3 class="card-text">Estadísticas:</h3>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Valor Base</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let stat of pokemonDetails?.stats">
-                <td>{{ stat.stat.name }}</td>
-                <td>{{ stat.base_stat }}</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="card-text"><small class="text-muted">Última actualización: {{ getLastUpdated() }}</small></p>
-          <button class="btn btn-success" (click)="goBack()">Regresar</button>
-        </div>
+<div class="card" style="background-color: rgba(0, 0, 0, 0.5); color: white; border: 1px solid rgba(255, 255, 255, 0.2);">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img *ngIf="pokemonDetails?.sprites && pokemonDetails?.sprites?.front_default" [src]="pokemonDetails?.sprites?.front_default" class="img-fluid rounded-start" alt="Imagen del Pokémon">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h3 class="card-title" style="font-size: 24px; font-weight: bold;">{{ pokemonDetails?.name }}</h3>
+        <p class="card-text">ID: {{ pokemonDetails?.id }}</p>
+        <p class="card-text">Tipos: {{ getTypes() }}</p>
+        <p class="card-text">Habilidades:</p>
+        <ul class="list-unstyled">
+          <li *ngFor="let ability of pokemonDetails?.abilities">
+            {{ ability.ability.name }} ({{ ability.is_hidden ? 'oculta' : 'visible' }})
+          </li>
+        </ul>
+        <h3 class="card-text">Estadísticas:</h3>
+        <table class="table" style="width: 100%; margin-top: 20px;">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Valor Base</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stat of pokemonDetails?.stats" >
+              <td>{{ stat.stat.name }}</td>
+              <td>{{ stat.base_stat }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-outline-light" (click)="goBack()">Regresar</button>
       </div>
     </div>
   </div>
-
-  
-  
+</div>
