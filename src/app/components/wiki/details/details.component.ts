@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokeapiService, PokemonDetails, PokemonStat } from 'src/app/services/pokeapi.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -10,11 +10,14 @@ import { PokeapiService, PokemonDetails, PokemonStat } from 'src/app/services/po
 export class DetailsComponent implements OnInit {
   pokemonId: number | undefined;
   pokemonDetails: PokemonDetails | undefined;
-
+  previousOffset: number;
   constructor(
     private route: ActivatedRoute,
-    private pokeapiService: PokeapiService
-  ) { }
+    private pokeapiService: PokeapiService,
+    private location: Location
+  ) {
+    this.previousOffset = window.pageYOffset;
+   }
 
   ngOnInit(): void {
     // Obtener el ID del Pokémon de la URL
@@ -53,5 +56,8 @@ export class DetailsComponent implements OnInit {
   
     return lastUpdated.toLocaleString();
   }
-  
+  goBack(): void {
+    window.scrollTo(0, this.previousOffset);
+    this.location.back();
+  }
 }

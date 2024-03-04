@@ -1,7 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { PokeapiService, PokemonDetails, PokemonList } from 'src/app/services/pokeapi.service';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,8 +9,10 @@ import { PokeapiService, PokemonDetails, PokemonList } from 'src/app/services/po
 export class HomeComponent implements OnInit {
   pokemonList: PokemonList | undefined;
   pokemonDetails: PokemonDetails | undefined;
-
-  constructor(private pokeapiService: PokeapiService) { }
+  page: number = 1;
+  constructor(
+    private pokeapiService: PokeapiService,
+    ) { }
 
   ngOnInit(): void {
     this.getPokemonList();
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPokemonList(): void {
-    this.pokeapiService.getPokemonList(0, 20)
+    this.pokeapiService.getPokemonList1(0, 20)
       .subscribe((data: PokemonList) => {
         this.pokemonList = data;
       });
@@ -61,4 +61,5 @@ export class HomeComponent implements OnInit {
     // Construir la URL de la imagen del Pokémon
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
   }
+
 }

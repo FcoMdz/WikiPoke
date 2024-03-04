@@ -5,6 +5,7 @@ import { DetailsComponent } from './components/wiki/details/details.component';
 
 const routes: Routes = [
     { path:'home', component: HomeComponent },
+    { path: 'home/:page', component: HomeComponent },
     { path:'pokemon/:id', component: DetailsComponent },
     { path:'', pathMatch:'full', redirectTo:'home' },
     { path:'**', pathMatch:'full', redirectTo:'home' }

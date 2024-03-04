@@ -1,13 +1,16 @@
 <h2 class="titulo">Lista de Pokémon</h2>
-<div class="row d-flex justify-content-center" style="width: 100%;">
-    <div class="col-12 position-relative py-2 px-4 justify-content-center"  style="width: 100%;">
-        <button  class="btn btn-outline-light" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
-        <button  class="btn btn-outline-light" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
+<div class="row justify-content-center">
+  <div class="col-12 text-center" style="margin-bottom: 1%;">
+    <div class="d-inline-block">
+      <button class="btn btn-success" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
+      <button class="btn btn-success" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
     </div>
-    
   </div>
-  <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4" *ngFor="let pokemon of pokemonList?.results">
+<br>
+
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+    <div class="col" *ngFor="let pokemon of pokemonList?.results">
       <a [routerLink]="['/pokemon', getPokemonId(pokemon.url)]" class="card-link">
         <div class="card text-bg-dark">
             <img [src]="getPokemonImageUrl(pokemon.url)" class="card-img-top" alt="${pokemon.name}">
@@ -25,9 +28,13 @@
       </a>
     </div>
   </div>
+
+  <br>
   <div class="row justify-content-center">
-    <div class="col-12 position-relative py-2 px-4 ">
-        <button  class="btn btn-outline-light" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
-        <button  class="btn btn-outline-light" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
+    <div class="col-12 text-center">
+      <div class="d-inline-block">
+        <button class="btn btn-success" (click)="loadPreviousPage()" [disabled]="!pokemonList?.previous">Página Anterior</button>
+        <button class="btn btn-success" (click)="loadNextPage()" [disabled]="!pokemonList?.next">Página Siguiente</button>
+      </div>
     </div>
     
